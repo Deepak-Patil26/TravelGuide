@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Places in India with Routing</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+<body>
+    <div id="map"></div> <!-- Map container -->
+    <div id="controls">
+        <select id="place-select">
+            <option value="" disabled selected>Select a Tourist Place</option>
+            <option value="Taj Mahal">Taj Mahal</option>
+            <option value="Bidar Fort">Bidar Fort</option>
+            <option value="India Gate">India Gate</option>
+            <option value="Gateway of India">Gateway of India</option>
+            <option value="Red Fort">Red Fort</option>
+            <option value="Hawa Mahal">Hawa Mahal</option>
+            <option value="Charminar">Charminar</option>
+            <option value="Mysore Palace">Mysore Palace</option>
+            <option value="Shivgiri Temple">Shivgiri Temple</option>
+            <option value="Gol Gumbaz">Gol Gumbaz</option>
+            <option value="Golden Temple">Golden Temple</option>
+            
+        </select>
+        <input type="text" id="start-location" placeholder="Enter your starting location" required>
+        <button id="find-route-button">Find Route</button>
+        <div id="place-info" style="display:none;"> <!-- Initially hidden -->
+            <h3 id="place-name"></h3>
+            <img id="place-image" src="" alt=""> <!-- Image for the place -->
+            <div id="place-description" class="highlight"></div> <!-- Highlighted description -->
+            <div class="rating" id="rating-container">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+                <p id="user-rating" style="float: right;">Your Rating: Not Rated</p>
+            </div>
+            <div id="reviews">
+                <h4>Reviews:</h4>
+                <div id="review-list"></div>
+            </div>
+            <div class="review-input">
+                <input type="text" id="username" placeholder="Your Name" required>
+                <textarea id="user-review" placeholder="Write your review here..." required></textarea>
+                <button id="submit-review-button">Submit Review</button>
+            </div>
+        </div> <!-- To display information about the place -->
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+
+        body {
+            display: flex; /* Use flexbox to create a layout */
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+            margin: 0;
+            color: #333; /* Text color */
+        }
+        #map {
+            height: 100vh; /* Map takes 70% of the viewport height */
+            width: 70%; /* Map takes 70% of the width */
+        }
+        #controls {
+            padding: 10px;
+            width: 25%; /* Reduced width for the right panel */
+            background: #fff; /* White background for controls */
+            border-left: 1px solid #ddd; /* Left border for separation */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the start */
+            justify-content: flex-start; /* Align items to the start */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+        }
+        select, button, input, textarea {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px; /* Rounded corners */
+            border: 1px solid #ccc; /* Light border */
+            background-color: #e7f1ff; /* Light blue background for controls */
+            cursor: pointer; /* Pointer cursor on hover */
+            width: 100%; /* Full width for inputs */
+        }
+        button:hover {
+            background-color: #d1e8ff; /* Slightly darker on hover */
+        }
+        #place-info {
+            margin-top: 10px;
+            width: 100%; /* Full width for place info */
+            text-align: left; /* Left align text */
+            border: 1px solid #ccc; /* Border for place info */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Padding for inner spacing */
+            background-color: #f9f9f9; /* Light background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        }
+        #place-image {
+            width: 100%; /* Full width for the image */
+            border-radius: 5px; /* Rounded corners for images */
+            height: auto; /* Maintain aspect ratio */
+        }
+        h3 {
+            color: #007bff; /* Bootstrap primary color */
+            margin: 5px 0; /* Margin for spacing */
+        }
+        p {
+            margin: 5px 0; /* Add spacing to paragraphs */
+        }
+        .highlight {
+            background-color: #e1f7d5; /* Light green background */
+            padding: 10px;
+            border-left: 4px solid #28a745; /* Green border for emphasis */
+            margin-bottom: 10px; /* Spacing below highlighted sections */
+        }
+        .rating {
+            margin: 10px 0;
+            position: relative;
+        }
+        .star {
+            font-size: 20px;
+            cursor: pointer;
+            color: gray; /* Default color for stars */
+        }
+        .star.selected {
+            color: gold; /* Color for selected stars */
+        }
+        .review-input {
+            margin-top: 10px;
+        }
