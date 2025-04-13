@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tourist Places in India with Routing</title>
-    <!-- Leaflet CSS -->
+    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
@@ -13,7 +13,7 @@
     
 </head>
 <body>
-    <div id="map"></div> <!-- Map container -->
+    <div id="map"></div>
     <div id="controls">
         <select id="place-select">
             <option value="" disabled selected>Select a Tourist Place</option>
@@ -32,10 +32,10 @@
         </select>
         <input type="text" id="start-location" placeholder="Enter your starting location" required>
         <button id="find-route-button">Find Route</button>
-        <div id="place-info" style="display:none;"> <!-- Initially hidden -->
+        <div id="place-info" style="display:none;">
             <h3 id="place-name"></h3>
-            <img id="place-image" src="" alt=""> <!-- Image for the place -->
-            <div id="place-description" class="highlight"></div> <!-- Highlighted description -->
+            <img id="place-image" src="" alt="">
+            <div id="place-description" class="highlight"></div> 
             <div class="rating" id="rating-container">
                 <span class="star" data-value="1">★</span>
                 <span class="star" data-value="2">★</span>
@@ -53,10 +53,10 @@
                 <textarea id="user-review" placeholder="Write your review here..." required></textarea>
                 <button id="submit-review-button">Submit Review</button>
             </div>
-        </div> <!-- To display information about the place -->
+        </div> 
     </div>
 
-    <!-- Leaflet JS -->
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
