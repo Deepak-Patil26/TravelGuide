@@ -1,7 +1,4 @@
-
-
-// Initialize the map
-var map = L.map('map').setView([20.5937, 78.9629], 5); // Centered on India
+var map = L.map('map').setView([20.5937, 78.9629], 5); 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
@@ -13,7 +10,6 @@ var routingControl = L.Routing.control({
     geocoder: L.Control.Geocoder.nominatim()
 }).addTo(map);
 
-// Define famous tourist places in India with information, images, and ratings
 var famousPlaces = [
     { 
         name: "Taj Mahal", 
@@ -177,66 +173,61 @@ var famousPlaces = [
     
 ];
 
-// Populate place info on selection
 document.getElementById('place-select').addEventListener('change', function() {
     var selectedPlace = famousPlaces.find(place => place.name === this.value);
     if (selectedPlace) {
         document.getElementById('place-name').textContent = selectedPlace.name;
         document.getElementById('place-image').src = selectedPlace.image;
         document.getElementById('place-description').textContent = selectedPlace.info;
-        document.getElementById('place-info').style.display = 'block'; // Show the place info
+        document.getElementById('place-info').style.display = 'block'; 
         setupRatings(selectedPlace);
         setupReviews(selectedPlace);
-        map.setView(selectedPlace.coords, 14); // Center map on selected place
-        L.marker(selectedPlace.coords).addTo(map); // Add marker for selected place
+        map.setView(selectedPlace.coords, 14); 
+        L.marker(selectedPlace.coords).addTo(map); 
     }
 });
 
-// Function to setup ratings for the selected place
 function setupRatings(place) {
     var stars = document.querySelectorAll('.star');
     stars.forEach(star => {
-        star.classList.remove('selected'); // Clear previous selections
+        star.classList.remove('selected'); 
         star.addEventListener('click', function() {
             var rating = this.getAttribute('data-value');
             document.getElementById('user-rating').textContent = "Your Rating: " + rating + " stars";
             stars.forEach(s => {
-                s.classList.remove('selected'); // Clear all selections
+                s.classList.remove('selected'); 
             });
             for (var i = 0; i < rating; i++) {
-                stars[i].classList.add('selected'); // Highlight selected stars
+                stars[i].classList.add('selected'); 
             }
-            place.rating = parseFloat(rating); // Update place rating
+            place.rating = parseFloat(rating); 
         });
     });
 }
 
-// Function to setup reviews for the selected place
 function setupReviews(place) {
     var reviewList = document.getElementById('review-list');
-    reviewList.innerHTML = ""; // Clear previous reviews
+    reviewList.innerHTML = ""; 
     place.reviews.forEach(review => {
         var reviewDiv = document.createElement('div');
         reviewDiv.textContent = review.user + ": " + review.text;
         reviewList.appendChild(reviewDiv);
     });
 
-    // Submit review event
     document.getElementById('submit-review-button').onclick = function() {
         var username = document.getElementById('username').value;
         var userReview = document.getElementById('user-review').value;
         if (username && userReview) {
             place.reviews.push({ user: username, text: userReview });
-            setupReviews(place); // Refresh reviews
-            document.getElementById('username').value = ""; // Clear input
-            document.getElementById('user-review').value = ""; // Clear input
+            setupReviews(place); 
+            document.getElementById('username').value = "";
+            document.getElementById('user-review').value = ""; 
         } else {
             alert("Please enter your name and review.");
         }
     };
 }
 
-// Event listener for the "Find Route" button
 document.getElementById('find-route-button').addEventListener('click', function() {
     var selectedPlace = famousPlaces.find(place => place.name === document.getElementById('place-select').value);
     var startLocation = document.getElementById('start-location').value; 
@@ -264,16 +255,15 @@ document.getElementById('find-route-button').addEventListener('click', function(
                 var destCoords = [destData[0].lat, destData[0].lon];
                 console.log("Destination Coordinates:", destCoords);
 
-                // Remove old routes before adding a new one
+               
                 if (window.routingControl) {
                     map.removeControl(window.routingControl);
                 }
 
-                // Add Leaflet Routing
                 window.routingControl = L.Routing.control({
                     waypoints: [
-                        L.latLng(startCoords[0], startCoords[1]), // User's location
-                        L.latLng(destCoords[0], destCoords[1]) // Mysore Palace
+                        L.latLng(startCoords[0], startCoords[1]), 
+                        L.latLng(destCoords[0], destCoords[1]) 
                     ],
                     routeWhileDragging: true
                 }).addTo(map);
